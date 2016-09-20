@@ -14,6 +14,5 @@ export class ReposService {
     return this._http.get(
                           this.apiUrl + "orgs/angular/repos"
                         )
-                        .map((res: Response) => res.json())
   }
 }

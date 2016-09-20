@@ -15,14 +15,13 @@ import { ReposService } from "./repos.service";
                 </div>
               </div>
 
-            `,
-  providers: [ReposService]
+            `
 })
 export class RepoListComponent {
   reposList: any;
   constructor(private _repos: ReposService){
     this._repos.list().subscribe(
-                                  (data) => {this.reposList = data},
+                                  (data) => {this.reposList = data.json()},
                                   (err) => {console.log(err)}
                                 )
   }

@@ -4,6 +4,8 @@ import { HttpModule } from '@angular/http';
 import { HomeComponent } from "./home.component";
 import { Routes, RouterModule  } from '@angular/router';
 import { RepoListComponent } from "./repo-list.component";
+import { CommonModule } from "@angular/common";
+import { ReposService } from "./repos.service";
 
 const appRoutes: Routes = [
 { path: '', component: RepoListComponent }
@@ -12,14 +14,18 @@ const appRoutes: Routes = [
 const routing = RouterModule.forRoot(appRoutes);
 @NgModule({
     declarations: [
-                  HomeComponent
+                  HomeComponent,
+                  RepoListComponent
                   ],
 
-    imports:      [BrowserModule,
+    imports:      [
+                  BrowserModule,
+                  CommonModule,
                   routing,
                   HttpModule],
 
-    bootstrap:    [HomeComponent]
+    bootstrap:    [HomeComponent],
+    providers: [ReposService]
 })
 export class AppModule {
 
